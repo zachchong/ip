@@ -1,4 +1,8 @@
+import javafx.css.Match;
+
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Eureka {
 
@@ -59,10 +63,43 @@ public class Eureka {
                         System.out.println(taskList[Integer.parseInt(parts[1]) - 1].toString());
                         System.out.println("_____________________________");
                     } else {
-                        taskList[taskListCount] = new Task(input, false);
-                        taskListCount++;
+                        if (input.startsWith("todo")) {
+                            String[] parts = input.split("\\s+", 2);
+
+                            taskList[taskListCount] = new Todo(parts[0]);
+                            taskListCount++;
+
+                        } else if (input.startsWith("deadline")) {
+                            Pattern p = Pattern.compile("^\\s*(?<cmd>\\w+)\\s+(?<taskName>.+?)\\s+/by\\s+(?<by>.+)\\s*$");
+                            Matcher m = p.matcher(input);
+                            if (!m.matches()) {
+                                System.out.println("Invalid deadline format.");
+                                return;
+                            }
+                            String taskName = m.group("taskName");
+                            String by = m.group("by");
+
+                            taskList[taskListCount] = new Deadline(by, taskName);
+                            taskListCount++;
+
+                        } else if (input.startsWith("event")) {
+                            Pattern p = Pattern.compile("^\\s*(?<cmd>\\w+)\\s+(?<taskName>.+?)\\s+/from\\s+(?<from>.+?)\\s+/to\\s+(?<to>.+)\\s*$");
+                            Matcher m = p.matcher(input);
+                            if (!m.matches()) {
+                                System.out.println("Invalid event format.");
+                                return;
+                            }
+                            String taskName = m.group("taskName");
+                            String from = m.group("from");
+                            String to = m.group("to");
+
+                            taskList[taskListCount] = new Event(from, to, taskName);
+                            taskListCount++;
+                        }
                         System.out.println("_____________________________");
-                        System.out.println("added: " + input);
+                        System.out.println("Got it. I've added this task:");
+                        System.out.println(taskList[taskListCount - 1].toString());
+                        System.out.println("Now you have " + taskListCount + " tasks in the list.");
                         System.out.println("_____________________________");
                     }
 
