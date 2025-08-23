@@ -4,6 +4,7 @@ deadline return book /by Tuesday
 mark 1
 unmark 1
 mark 2
+delete 1
 list
 deadline homework
 todo
