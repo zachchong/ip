@@ -5,4 +5,7 @@ mark 1
 unmark 1
 mark 2
 list
+deadline homework
+todo
+event homework /from
 bye
