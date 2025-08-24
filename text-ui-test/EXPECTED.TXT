@@ -30,10 +30,23 @@ Nice! I've marked this task as done:
 [E] [X] homework (from: Saturday to: Monday)
 _____________________________
 _____________________________
+Noted. I've removed this task:
+[T] [ ] read book
+Now you have 2 tasks in the list.
+_____________________________
+_____________________________
 Here are the tasks in your list:
-1. [T] [ ] read book
-2. [E] [X] homework (from: Saturday to: Monday)
-3. [D] [ ] return book (by: Tuesday)
+1. [E] [X] homework (from: Saturday to: Monday)
+2. [D] [ ] return book (by: Tuesday)
+_____________________________
+_____________________________
+Invalid deadline format. Eg: deadline homework /by today
+_____________________________
+_____________________________
+Invalid todo format. Task Name cannot be empty. Eg: todo homework
+_____________________________
+_____________________________
+Invalid event format. Eg: event orientation /from today /to tomorrow
 _____________________________
 _____________________________
 Bye. Hope to see you again soon!
