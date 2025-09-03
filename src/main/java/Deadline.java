@@ -1,5 +1,7 @@
+import java.time.LocalDate;
+
 public class Deadline extends Task{
-    private String due;
+    private LocalDate due;
 
     Deadline(String due, String taskName, boolean isDone) {
         super(taskName, isDone);

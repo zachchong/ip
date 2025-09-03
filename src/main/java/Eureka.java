@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.time.LocalDate;
 
 public class Eureka {
 
@@ -150,7 +151,6 @@ public class Eureka {
                                 break;
                             }
                             String taskName = m.group("taskName");
-                            String taskType = m.group("cmd");
 
                             taskList.add(new Todo(taskName, false));
                             taskListCount++;
@@ -173,8 +173,7 @@ public class Eureka {
                                 break;
                             }
                             String taskName = m.group("taskName");
-                            String by = m.group("by");
-                            String taskType = m.group("cmd");
+                            LocalDate by = LocalDate.parse(m.group("by"));
 
                             taskList.add(new Deadline(by, taskName, false));
                             taskListCount++;
@@ -199,7 +198,6 @@ public class Eureka {
                             String taskName = m.group("taskName");
                             String from = m.group("from");
                             String to = m.group("to");
-                            String taskType = m.group("cmd");
 
                             taskList.add(new Event(from, to, taskName, false));
                             taskListCount++;
