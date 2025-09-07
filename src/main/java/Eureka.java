@@ -1,11 +1,13 @@
 import javafx.css.Match;
 
 import java.io.*;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
 
 public class Eureka {
 
@@ -61,6 +63,17 @@ public class Eureka {
             System.out.println(e.getMessage());
         }
 
+    }
+
+    private static LocalDateTime dateTimeConverter(String timeToBeConverted) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        try {
+            return LocalDateTime.parse(timeToBeConverted.trim(), formatter);
+        } catch (DateTimeParseException e) {
+            throw new IllegalArgumentException(
+                    "Invalid date format. Please use yyyy-MM-dd HH:mm, e.g. 2025-09-01 18:00"
+            );
+        }
     }
 
     public static void main(String[] args) {
@@ -151,6 +164,7 @@ public class Eureka {
                                 break;
                             }
                             String taskName = m.group("taskName");
+                            String taskType = m.group("cmd");
 
                             taskList.add(new Todo(taskName, false));
                             taskListCount++;
@@ -168,46 +182,66 @@ public class Eureka {
                             Matcher m = p.matcher(input);
                             if (!m.matches()) {
                                 System.out.println("_____________________________");
-                                System.out.println("Invalid deadline format. Eg: deadline homework /by today");
+                                System.out.println("Invalid deadline format. Eg: deadline homework /by \"yyyy-MM-dd HH:mm\"");
                                 System.out.println("_____________________________");
                                 break;
                             }
                             String taskName = m.group("taskName");
-                            LocalDate by = LocalDate.parse(m.group("by"));
 
-                            taskList.add(new Deadline(by, taskName, false));
-                            taskListCount++;
+                            try {
+                                LocalDateTime by = dateTimeConverter(m.group("by"));
+                                String taskType = m.group("cmd");
 
-                            // Save into file
-                            try (FileWriter writer = new FileWriter(HISTORY_FILE, true)) {
-                                //writer.write(taskType + " | " + "0" + " | " + taskName + " | " + by + System.lineSeparator());
-                                writer.write(taskList.get(taskListCount -1).serialise() + System.lineSeparator());
-                            } catch (IOException e) {
-                                System.out.println("Error writing to file: " + e.getMessage());
+                                taskList.add(new Deadline(by, taskName, false));
+                                taskListCount++;
+
+                                // Save into file
+                                try (FileWriter writer = new FileWriter(HISTORY_FILE, true)) {
+                                    //writer.write(taskType + " | " + "0" + " | " + taskName + " | " + by + System.lineSeparator());
+                                    writer.write(taskList.get(taskListCount -1).serialise() + System.lineSeparator());
+                                } catch (IOException e) {
+                                    System.out.println("Error writing to file: " + e.getMessage());
+                                }
+                            } catch (IllegalArgumentException e) {
+                                System.out.println("_____________________________");
+                                System.out.println(e.getMessage());
+                                System.out.println("_____________________________");
+                                break;
                             }
+
 
                         } else if (input.startsWith("event")) {
                             Pattern p = Pattern.compile("^\\s*(?<cmd>\\w+)\\s+(?<taskName>.+?)\\s+/from\\s+(?<from>.+?)\\s+/to\\s+(?<to>.+)\\s*$");
                             Matcher m = p.matcher(input);
                             if (!m.matches()) {
                                 System.out.println("_____________________________");
-                                System.out.println("Invalid event format. Eg: event orientation /from today /to tomorrow");
+                                System.out.println("Invalid event format. Eg: event orientation /from \"yyyy-MM-dd HH:mm\" /to \"yyyy-MM-dd HH:mm\"");
                                 System.out.println("_____________________________");
                                 break;
                             }
                             String taskName = m.group("taskName");
-                            String from = m.group("from");
-                            String to = m.group("to");
 
-                            taskList.add(new Event(from, to, taskName, false));
-                            taskListCount++;
+                            try {
+                                LocalDateTime from = dateTimeConverter(m.group("from"));
+                                LocalDateTime to = dateTimeConverter(m.group("to"));
 
-                            // Save into file
-                            try (FileWriter writer = new FileWriter(HISTORY_FILE, true)) {
-                                //writer.write(taskType + " | " + "0" + " | " + taskName + " | from " + from + " | to " + to + System.lineSeparator());
-                                writer.write(taskList.get(taskListCount -1).serialise() + System.lineSeparator());
-                            } catch (IOException e) {
-                                System.out.println("Error writing to file: " + e.getMessage());
+                                String taskType = m.group("cmd");
+
+                                taskList.add(new Event(from, to, taskName, false));
+                                taskListCount++;
+
+                                // Save into file
+                                try (FileWriter writer = new FileWriter(HISTORY_FILE, true)) {
+                                    //writer.write(taskType + " | " + "0" + " | " + taskName + " | from " + from + " | to " + to + System.lineSeparator());
+                                    writer.write(taskList.get(taskListCount -1).serialise() + System.lineSeparator());
+                                } catch (IOException e) {
+                                    System.out.println("Error writing to file: " + e.getMessage());
+                                }
+                            } catch (IllegalArgumentException e) {
+                                System.out.println("_____________________________");
+                                System.out.println(e.getMessage());
+                                System.out.println("_____________________________");
+                                break;
                             }
                         }
                         System.out.println("_____________________________");

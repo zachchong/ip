@@ -1,3 +1,6 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Task {
     private String taskName;
     private boolean isDone;
@@ -39,13 +42,18 @@ public class Task {
             case "T":
                 return new Todo(taskName, isDone);
             case "D":
-                return new Deadline(parts[3], taskName, isDone);
+                return new Deadline(LocalDateTime.parse(parts[3]), taskName, isDone);
             case "E":
-                return new Event(parts[3], parts[4], taskName, isDone);
+                return new Event(LocalDateTime.parse(parts[3]), LocalDateTime.parse(parts[4]), taskName, isDone);
             default:
                 throw new IllegalArgumentException("Unknown type: " + parts[0]);
         }
 
+    }
+
+    public String dateTimeFormatter(LocalDateTime dateTime) {
+        DateTimeFormatter custom1 = DateTimeFormatter.ofPattern("EEEE, MMMM dd yyyy HH:mm");
+        return dateTime.format(custom1);
     }
 
 
