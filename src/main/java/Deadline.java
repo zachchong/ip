@@ -1,18 +1,21 @@
-public class Deadline extends Task{
-    private String due;
+import java.time.LocalDateTime;
 
-    Deadline(String due, String taskName, boolean isDone) {
+public class Deadline extends Task{
+    private LocalDateTime due;
+
+    Deadline(LocalDateTime due, String taskName, boolean isDone) {
         super(taskName, isDone);
         this.due = due;
     }
 
     @Override
     public String toString() {
-        return "[D] " + super.toString() + " (by: " + this.due +")";
+        return "[D] " + super.toString() + " (by: " + super.dateTimeFormatter(this.due) +")";
     }
 
     @Override
     public String serialise() {
         return "D | " + super.serialise() + " | " + this.due;
     }
+
 }
