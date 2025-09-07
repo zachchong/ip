@@ -7,6 +7,11 @@ import java.util.regex.Pattern;
 
 public class Parser {
 
+    /**
+     *
+     * @param fullCommand
+     * @return
+     */
     public static Command parse(String fullCommand) {
         switch (fullCommand) {
             case "bye":

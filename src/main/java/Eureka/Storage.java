@@ -14,6 +14,10 @@ public class Storage {
         this.filePath = filePath;
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<Task> load() {
         File f = new File(filePath);
         if (!f.exists()) {

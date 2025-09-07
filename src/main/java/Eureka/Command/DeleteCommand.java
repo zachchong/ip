@@ -12,6 +12,12 @@ public class DeleteCommand extends Command{
         this.index = index;
     }
 
+    /**
+     *
+     * @param tasks
+     * @param ui
+     * @param storage
+     */
     @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) {
 

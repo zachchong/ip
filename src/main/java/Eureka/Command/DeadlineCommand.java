@@ -19,6 +19,12 @@ public class DeadlineCommand extends Command{
         this.by = by;
     }
 
+    /**
+     *
+     * @param tasks
+     * @param ui
+     * @param storage
+     */
     @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) {
         tasks.addTask(new Deadline(by, taskName, false));
@@ -26,6 +32,10 @@ public class DeadlineCommand extends Command{
         ui.addTaskMessage(tasks);
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public boolean isExit() {
         return false;
