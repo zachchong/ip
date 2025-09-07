@@ -40,6 +40,7 @@ public class Eureka {
         }
     }
 
+
     public static void main(String[] args) {
         new Eureka("data/record.txt").run();
     }
