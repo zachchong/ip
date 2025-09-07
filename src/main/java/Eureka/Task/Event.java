@@ -1,10 +1,12 @@
+package Eureka.Task;
+
 import java.time.LocalDateTime;
 
 public class Event extends Task{
     private LocalDateTime start;
     private LocalDateTime end;
 
-    Event(LocalDateTime start, LocalDateTime end, String taskName, boolean isDone) {
+    public Event(LocalDateTime start, LocalDateTime end, String taskName, boolean isDone) {
         super(taskName, isDone);
         this.start = start;
         this.end = end;

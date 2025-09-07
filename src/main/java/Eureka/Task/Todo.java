@@ -1,5 +1,7 @@
+package Eureka.Task;
+
 public class Todo extends Task {
-    Todo(String taskName, boolean isDone) {
+    public Todo(String taskName, boolean isDone) {
         super(taskName, isDone);
     }
 

@@ -1,4 +1,4 @@
-# Eureka User Guide
+# Eureka.Eureka User Guide
 
 // Update the title above to match the actual product name
 

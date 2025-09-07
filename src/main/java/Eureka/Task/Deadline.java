@@ -1,9 +1,11 @@
+package Eureka.Task;
+
 import java.time.LocalDateTime;
 
 public class Deadline extends Task{
     private LocalDateTime due;
 
-    Deadline(LocalDateTime due, String taskName, boolean isDone) {
+    public Deadline(LocalDateTime due, String taskName, boolean isDone) {
         super(taskName, isDone);
         this.due = due;
     }
