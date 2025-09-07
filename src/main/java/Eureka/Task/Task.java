@@ -58,5 +58,9 @@ public class Task {
         return dateTime.format(custom1);
     }
 
+    public boolean contains(String keyword) {
+        return taskName.toLowerCase().contains(keyword.toLowerCase());
+    }
+
 
 }
