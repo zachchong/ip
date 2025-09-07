@@ -21,6 +21,11 @@ public class EventCommand extends Command{
         this.to = to;
     }
 
+    // For testing purpose
+    public LocalDateTime getFrom() {
+        return from;
+    }
+
     @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) {
         tasks.addTask(new Event(from, to, taskName, false));

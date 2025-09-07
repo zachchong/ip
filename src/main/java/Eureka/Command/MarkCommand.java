@@ -12,6 +12,11 @@ public class MarkCommand extends Command{
         this.index = index;
     }
 
+    //For Testing Purpose
+    public int getIndex() {
+        return index;
+    }
+
     @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) {
         if (index >= 0 && index < tasks.getCount()) {
