@@ -1,8 +1,8 @@
-package Eureka.Command;
+package eureka.command;
 
-import Eureka.Storage;
-import Eureka.Task.TaskList;
-import Eureka.Ui.Ui;
+import eureka.Storage;
+import eureka.Task.TaskList;
+import eureka.ui.Ui;
 
 public abstract class Command {
 

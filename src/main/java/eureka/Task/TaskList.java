@@ -1,4 +1,4 @@
-package Eureka.Task;
+package eureka.Task;
 
 import java.util.ArrayList;
 

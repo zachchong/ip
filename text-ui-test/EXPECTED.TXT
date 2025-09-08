@@ -1,36 +1,36 @@
 _____________________________
-Hello! I'm Eureka.Eureka
+Hello! I'm eureka.eureka
 What can I do for you?
 _____________________________
 _____________________________
-Got it. I've added this Eureka.Eureka.Task:
+Got it. I've added this eureka.eureka.Task:
 [T] [ ] read book
 Now you have 1 tasks in the list.
 _____________________________
 _____________________________
-Got it. I've added this Eureka.Eureka.Task:
+Got it. I've added this eureka.eureka.Task:
 [E] [ ] homework (from: Saturday to: Monday)
 Now you have 2 tasks in the list.
 _____________________________
 _____________________________
-Got it. I've added this Eureka.Eureka.Task:
+Got it. I've added this eureka.eureka.Task:
 [D] [ ] return book (by: Tuesday)
 Now you have 3 tasks in the list.
 _____________________________
 _____________________________
-Nice! I've marked this Eureka.Eureka.Task as done:
+Nice! I've marked this eureka.eureka.Task as done:
 [T] [X] read book
 _____________________________
 _____________________________
-OK, I've marked this Eureka.Eureka.Task as not done yet:
+OK, I've marked this eureka.eureka.Task as not done yet:
 [T] [ ] read book
 _____________________________
 _____________________________
-Nice! I've marked this Eureka.Eureka.Task as done:
+Nice! I've marked this eureka.eureka.Task as done:
 [E] [X] homework (from: Saturday to: Monday)
 _____________________________
 _____________________________
-Noted. I've removed this Eureka.Eureka.Task:
+Noted. I've removed this eureka.eureka.Task:
 [T] [ ] read book
 Now you have 2 tasks in the list.
 _____________________________
@@ -43,7 +43,7 @@ _____________________________
 Invalid deadline format. Eg: deadline homework /by today
 _____________________________
 _____________________________
-Invalid todo format. Eureka.Eureka.Task.Eureka.Eureka.Task Name cannot be empty. Eg: todo homework
+Invalid todo format. eureka.eureka.Task.eureka.eureka.Task Name cannot be empty. Eg: todo homework
 _____________________________
 _____________________________
 Invalid event format. Eg: event orientation /from today /to tomorrow

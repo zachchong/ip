@@ -1,6 +1,6 @@
-package Eureka;
+package eureka;
 
-import Eureka.Command.*;
+import eureka.command.*;
 
 import java.time.LocalDateTime;
 import java.util.regex.Matcher;

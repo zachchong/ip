@@ -1,22 +1,19 @@
-package Eureka.Command;
+package eureka.command;
 
-import Eureka.Storage;
-import Eureka.Task.Event;
-import Eureka.Task.TaskList;
-import Eureka.Ui.Ui;
+import eureka.Storage;
+import eureka.Task.Event;
+import eureka.Task.TaskList;
+import eureka.ui.Ui;
 
-import java.io.FileWriter;
-import java.io.IOException;
 import java.time.LocalDateTime;
 
-public class EventCommand extends Command{
+public class EventCommand extends Command {
 
     private String taskName;
     private LocalDateTime from;
     private LocalDateTime to;
 
     /**
-     *
      * @param taskName
      * @param from
      * @param to

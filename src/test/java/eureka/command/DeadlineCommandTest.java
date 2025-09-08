@@ -1,9 +1,9 @@
-package Eureka.Command;
+package eureka.command;
 
-import Eureka.Parser;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import eureka.Parser;
+
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class DeadlineCommandTest {

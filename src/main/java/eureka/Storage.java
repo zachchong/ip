@@ -1,6 +1,6 @@
-package Eureka;
+package eureka;
 
-import Eureka.Task.Task;
+import eureka.Task.Task;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -15,7 +15,6 @@ public class Storage {
     }
 
     /**
-     *
      * @return
      */
     public ArrayList<Task> load() {

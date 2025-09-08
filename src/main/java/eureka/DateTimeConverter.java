@@ -1,4 +1,4 @@
-package Eureka;
+package eureka;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

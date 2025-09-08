@@ -1,8 +1,8 @@
-package Eureka.Task;
+package eureka.Task;
 
 import java.time.LocalDateTime;
 
-public class Deadline extends Task{
+public class Deadline extends Task {
     private LocalDateTime due;
 
     public Deadline(LocalDateTime due, String taskName, boolean isDone) {
@@ -12,7 +12,7 @@ public class Deadline extends Task{
 
     @Override
     public String toString() {
-        return "[D] " + super.toString() + " (by: " + super.dateTimeFormatter(this.due) +")";
+        return "[D] " + super.toString() + " (by: " + super.dateTimeFormatter(this.due) + ")";
     }
 
     @Override

@@ -1,4 +1,4 @@
-package Eureka.Task;
+package eureka.Task;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -41,14 +41,14 @@ public class Task {
         String taskName = parts[2];
 
         switch (type) {
-            case "T":
-                return new Todo(taskName, isDone);
-            case "D":
-                return new Deadline(LocalDateTime.parse(parts[3]), taskName, isDone);
-            case "E":
-                return new Event(LocalDateTime.parse(parts[3]), LocalDateTime.parse(parts[4]), taskName, isDone);
-            default:
-                throw new IllegalArgumentException("Unknown type: " + parts[0]);
+        case "T":
+            return new Todo(taskName, isDone);
+        case "D":
+            return new Deadline(LocalDateTime.parse(parts[3]), taskName, isDone);
+        case "E":
+            return new Event(LocalDateTime.parse(parts[3]), LocalDateTime.parse(parts[4]), taskName, isDone);
+        default:
+            throw new IllegalArgumentException("Unknown type: " + parts[0]);
         }
 
     }

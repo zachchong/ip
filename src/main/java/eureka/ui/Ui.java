@@ -1,13 +1,17 @@
-package Eureka.Ui;
+package eureka.ui;
 
-import Eureka.Task.TaskList;
+import eureka.Task.TaskList;
 
 import java.util.Scanner;
 
 public class Ui {
 
     private static String input;
-    public Ui() {};
+
+    public Ui() {
+    }
+
+    ;
 
     public void showLoadingError() {
         System.out.println("There is an error loading the tasks history.");
@@ -18,7 +22,7 @@ public class Ui {
     }
 
     public void showWelcome() {
-        String CHATBOT_NAME = "Eureka";
+        String CHATBOT_NAME = "eureka";
         System.out.println("_____________________________");
         System.out.println("Hello! I'm " + CHATBOT_NAME);
         System.out.println("What can I do for you?");

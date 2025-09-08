@@ -1,10 +1,10 @@
-package Eureka.Command;
+package eureka.command;
 
-import Eureka.Storage;
-import Eureka.Task.TaskList;
-import Eureka.Ui.Ui;
+import eureka.Storage;
+import eureka.Task.TaskList;
+import eureka.ui.Ui;
 
-public class InvalidCommand extends Command{
+public class InvalidCommand extends Command {
     @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) {
         System.out.println("Invalid Command");

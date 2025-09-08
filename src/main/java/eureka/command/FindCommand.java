@@ -1,13 +1,13 @@
-package Eureka.Command;
+package eureka.command;
 
-import Eureka.Storage;
-import Eureka.Task.Task;
-import Eureka.Task.TaskList;
-import Eureka.Ui.Ui;
+import eureka.Storage;
+import eureka.Task.Task;
+import eureka.Task.TaskList;
+import eureka.ui.Ui;
 
 import java.util.ArrayList;
 
-public class FindCommand extends Command{
+public class FindCommand extends Command {
 
     private String keyword;
 

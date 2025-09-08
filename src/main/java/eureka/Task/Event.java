@@ -1,8 +1,8 @@
-package Eureka.Task;
+package eureka.Task;
 
 import java.time.LocalDateTime;
 
-public class Event extends Task{
+public class Event extends Task {
     private LocalDateTime start;
     private LocalDateTime end;
 

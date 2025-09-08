@@ -1,8 +1,8 @@
-package Eureka;
+package eureka;
 
-import Eureka.Command.Command;
-import Eureka.Task.TaskList;
-import Eureka.Ui.Ui;
+import eureka.command.Command;
+import eureka.Task.TaskList;
+import eureka.ui.Ui;
 
 public class Eureka {
 

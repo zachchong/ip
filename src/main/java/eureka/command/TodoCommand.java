@@ -1,14 +1,11 @@
-package Eureka.Command;
+package eureka.command;
 
-import Eureka.Storage;
-import Eureka.Task.TaskList;
-import Eureka.Task.Todo;
-import Eureka.Ui.Ui;
+import eureka.Storage;
+import eureka.Task.TaskList;
+import eureka.Task.Todo;
+import eureka.ui.Ui;
 
-import java.io.FileWriter;
-import java.io.IOException;
-
-public class TodoCommand extends Command{
+public class TodoCommand extends Command {
 
     private String taskName;
 

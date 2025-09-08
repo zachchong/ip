@@ -1,15 +1,13 @@
-package Eureka.Command;
+package eureka.command;
 
-import Eureka.Storage;
-import Eureka.Task.Deadline;
-import Eureka.Task.TaskList;
-import Eureka.Ui.Ui;
+import eureka.Storage;
+import eureka.Task.Deadline;
+import eureka.Task.TaskList;
+import eureka.ui.Ui;
 
-import java.io.FileWriter;
-import java.io.IOException;
 import java.time.LocalDateTime;
 
-public class DeadlineCommand extends Command{
+public class DeadlineCommand extends Command {
 
     private String taskName;
     private LocalDateTime by;
@@ -20,7 +18,6 @@ public class DeadlineCommand extends Command{
     }
 
     /**
-     *
      * @param tasks
      * @param ui
      * @param storage
@@ -33,7 +30,6 @@ public class DeadlineCommand extends Command{
     }
 
     /**
-     *
      * @return
      */
     @Override
