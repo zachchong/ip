@@ -15,6 +15,12 @@ public class EventCommand extends Command{
     private LocalDateTime from;
     private LocalDateTime to;
 
+    /**
+     *
+     * @param taskName
+     * @param from
+     * @param to
+     */
     public EventCommand(String taskName, LocalDateTime from, LocalDateTime to) {
         this.taskName = taskName;
         this.from = from;
