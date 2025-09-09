@@ -24,10 +24,12 @@ public class FindCommand extends Command {
         }
 
         ui.showLine();
+
         System.out.println("Here are the matching tasks in your list:");
         for (Task result : results) {
             System.out.println(result.toString());
         }
+
         ui.showLine();
 
         StringBuilder sb = new StringBuilder();
