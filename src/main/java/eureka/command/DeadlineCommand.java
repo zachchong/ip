@@ -23,10 +23,17 @@ public class DeadlineCommand extends Command {
      * @param storage
      */
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) {
+    public String execute(TaskList tasks, Ui ui, Storage storage) {
         tasks.addTask(new Deadline(by, taskName, false));
         storage.updateFile();
         ui.addTaskMessage(tasks);
+        int totalTasks = tasks.getCount();
+        String addedTask = tasks.getTask(totalTasks - 1).toString();
+
+        return "Got it. I've added this task:\n"
+                + addedTask + "\n"
+                + "Now you have " + totalTasks + " task"
+                + (totalTasks > 1 ? "s" : "") + " in the list.";
     }
 
     /**

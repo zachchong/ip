@@ -13,7 +13,12 @@ public class UnmarkCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) {
+    public String execute(TaskList tasks, Ui ui, Storage storage) {
+
+        if (index < 0 || index >= tasks.getCount()) {
+            return "⚠️ Oops! Invalid task index.";
+        }
+
         if (index >= 0 && index < tasks.getCount()) {
             tasks.unmarkTask(index);
         }
@@ -24,6 +29,9 @@ public class UnmarkCommand extends Command {
         System.out.println("OK, I've marked this task as not done yet:");
         System.out.println(tasks.getTask(index).toString());
         ui.showLine();
+
+        return "OK, I've marked this task as not done yet:\n"
+                + tasks.getTask(index).toString();
     }
 
     @Override

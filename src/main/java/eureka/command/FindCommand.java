@@ -16,14 +16,28 @@ public class FindCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) {
+    public String execute(TaskList tasks, Ui ui, Storage storage) {
         ArrayList<Task> results = tasks.find(keyword);
+
+        if (results.isEmpty()) {
+            return "No matching tasks found for keyword: " + keyword;
+        }
+
         ui.showLine();
         System.out.println("Here are the matching tasks in your list:");
         for (Task result : results) {
             System.out.println(result.toString());
         }
         ui.showLine();
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("Here are the matching tasks in your list:\n");
+
+        for (int i = 0; i < results.size(); i++) {
+            sb.append((i + 1)).append(". ").append(results.get(i).toString()).append("\n");
+        }
+
+        return sb.toString().trim(); // remove last newline
     }
 
     @Override

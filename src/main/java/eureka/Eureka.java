@@ -40,6 +40,22 @@ public class Eureka {
         }
     }
 
+    public String getResponse(String input) {
+        return "Duke heard: " + input;
+    }
+
+    public TaskList getTasks() {
+        return tasks;
+    }
+
+    public Storage getStorage() {
+        return storage;
+    }
+
+    public Ui getUi() {
+        return ui;
+    }
+
 
     public static void main(String[] args) {
         new Eureka("data/record.txt").run();

@@ -18,13 +18,15 @@ public class DeleteCommand extends Command {
      * @param storage
      */
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) {
+    public String execute(TaskList tasks, Ui ui, Storage storage) {
 
         String deletedInfo = "";
 
         if (index >= 0 && index < tasks.getCount()) {
             deletedInfo = tasks.getTask(index).toString();
             tasks.deleteTask(index);
+        } else {
+            return "⚠️ Oops! Invalid task index.";
         }
 
         storage.updateFile();
@@ -34,6 +36,11 @@ public class DeleteCommand extends Command {
         System.out.println(deletedInfo);
         System.out.println("Now you have " + tasks.getCount() + " tasks in the list.");
         ui.showLine();
+
+        return "Noted. I've removed this task:\n"
+                + deletedInfo + "\n"
+                + "Now you have " + tasks.getCount() + " task"
+                + (tasks.getCount() > 1 ? "s" : "") + " in the list.";
     }
 
     @Override
