@@ -1,12 +1,12 @@
 package eureka;
 
-import org.junit.jupiter.api.Test; // external imports first
-
-import eureka.command.EventCommand; // then project imports
-import eureka.command.MarkCommand;
-
-import static org.junit.jupiter.api.Assertions.assertEquals; // finally, static imports (all grouped together)
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
+
+import org.junit.jupiter.api.Test;
+
+import eureka.command.EventCommand;
+import eureka.command.MarkCommand;
 
 public class ParserTest {
 

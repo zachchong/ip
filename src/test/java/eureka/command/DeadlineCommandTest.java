@@ -1,12 +1,15 @@
 package eureka.command;
 
-import eureka.Parser;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 
 import java.lang.reflect.Field;
 import java.time.LocalDateTime;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+import eureka.Parser;
 
 public class DeadlineCommandTest {
 

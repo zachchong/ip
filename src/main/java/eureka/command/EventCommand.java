@@ -1,11 +1,11 @@
 package eureka.command;
 
-import eureka.Storage;
-import eureka.Task.Event;
-import eureka.Task.TaskList;
-import eureka.ui.Ui;
-
 import java.time.LocalDateTime;
+
+import eureka.Storage;
+import eureka.task.Event;
+import eureka.task.TaskList;
+import eureka.ui.Ui;
 
 /**
  * Represents a command that adds an {@link Event} task to the {@link TaskList}.

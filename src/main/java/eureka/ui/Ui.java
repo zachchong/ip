@@ -1,8 +1,8 @@
 package eureka.ui;
 
-import eureka.Task.TaskList;
-
 import java.util.Scanner;
+
+import eureka.task.TaskList;
 
 /**
  * Handles interactions between the user and the application.
@@ -40,9 +40,9 @@ public class Ui {
      * Displays the welcome message when the program starts.
      */
     public void showWelcome() {
-        String CHATBOT_NAME = "eureka";
+        String chatbotName = "eureka";
         System.out.println("_____________________________");
-        System.out.println("Hello! I'm " + CHATBOT_NAME);
+        System.out.println("Hello! I'm " + chatbotName);
         System.out.println("What can I do for you?");
         System.out.println("_____________________________");
     }

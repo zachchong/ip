@@ -1,9 +1,13 @@
 package eureka;
 
-import eureka.Task.Task;
-
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+
+import eureka.task.Task;
 
 /**
  * Handles reading from and writing to the storage file for tasks.
@@ -61,7 +65,9 @@ public class Storage {
             String line;
             while ((line = r.readLine()) != null) {
                 line = line.trim();
-                if (line.isEmpty()) continue;
+                if (line.isEmpty()) {
+                    continue;
+                }
                 try {
                     taskList.add(Task.parse(line));
                 } catch (IllegalArgumentException e) {
