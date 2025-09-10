@@ -62,6 +62,9 @@ public class EventCommand extends Command {
         ui.addTaskMessage(tasks);
 
         int totalTasks = tasks.getCount();
+
+        assert tasks.getTask(totalTasks - 1) != null : "last task should exist";
+
         String addedTask = tasks.getTask(totalTasks - 1).toString();
 
         return "Got it. I've added this task:\n"
