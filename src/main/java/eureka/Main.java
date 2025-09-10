@@ -9,12 +9,23 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
- * A GUI for Eureka using FXML.
+ * The entry point for the Eureka GUI application using JavaFX and FXML.
+ * <p>
+ * This class sets up the primary stage, loads the FXML layout,
+ * and connects the UI with the {@link Eureka} backend.
  */
 public class Main extends Application {
 
     private Eureka eureka = new Eureka("data/record.txt");
 
+    /**
+     * Starts the JavaFX application.
+     * <p>
+     * Loads the {@code MainWindow.fxml} layout, sets up the scene,
+     * and injects the {@link Eureka} instance into the controller.
+     *
+     * @param stage the primary stage provided by the JavaFX runtime
+     */
     @Override
     public void start(Stage stage) {
         try {

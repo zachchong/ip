@@ -9,8 +9,17 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+
 /**
- * Controller for the main GUI.
+ * Controller for the main Eureka GUI window defined in {@code MainWindow.fxml}.
+ * <p>
+ * This class manages user interactions with the GUI:
+ * <ul>
+ *   <li>Handles user text input from the input field</li>
+ *   <li>Displays user and Eureka dialog messages in the dialog container</li>
+ *   <li>Delegates command processing to the {@link Eureka} backend</li>
+ *   <li>Closes the application when an exit command is issued</li>
+ * </ul>
  */
 public class MainWindow extends AnchorPane {
     @FXML
@@ -27,19 +36,42 @@ public class MainWindow extends AnchorPane {
     private Image userImage = new Image(this.getClass().getResourceAsStream("/images/DaUser.png"));
     private Image eurekaImage = new Image(this.getClass().getResourceAsStream("/images/DaDuke.png"));
 
+    /**
+     * Initializes the main window controller.
+     * <p>
+     * Binds the scroll pane to automatically scroll to the bottom
+     * whenever new dialog boxes are added to the container.
+     */
     @FXML
     public void initialize() {
         scrollPane.vvalueProperty().bind(dialogContainer.heightProperty());
     }
 
-    /** Injects the Eureka instance */
+    /**
+     * Injects the {@link Eureka} instance into this controller.
+     * <p>
+     * This is called by {@link Main} after loading the FXML.
+     *
+     * @param d the {@code Eureka} instance to connect with the UI
+     */
     public void setEureka(Eureka d) {
         eureka = d;
     }
 
     /**
-     * Creates two dialog boxes, one echoing user input and the other containing Duke's reply and then appends them to
-     * the dialog container. Clears the user input after processing.
+     * Handles user input from the text field when the send button is clicked
+     * or the Enter key is pressed.
+     * <p>
+     * The flow is as follows:
+     * <ol>
+     *   <li>Retrieve the user's input</li>
+     *   <li>Parse it into a {@link Command}</li>
+     *   <li>Execute the command via the {@link Eureka} backend</li>
+     *   <li>Display both the user's message and Eureka's response in dialog boxes</li>
+     *   <li>Exit the application if the command is an exit command</li>
+     *   <li>Clear the input field</li>
+     * </ol>
+     * If the input is invalid, an error message is displayed instead of a normal response.
      */
     @FXML
     private void handleUserInput() {

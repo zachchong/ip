@@ -5,17 +5,37 @@ import eureka.Task.Task;
 import java.io.*;
 import java.util.ArrayList;
 
+/**
+ * Handles reading from and writing to the storage file for tasks.
+ * <p>
+ * The {@code Storage} class manages persistence by saving tasks to a text file
+ * and loading them back into memory when the application starts.
+ * Each task is stored in a serialized format and deserialized using
+ * {@link Task#parse(String)}.
+ */
 public class Storage {
 
     private String filePath;
     private ArrayList<Task> taskList = new ArrayList<>();
 
+    /**
+     * Constructs a {@code Storage} instance with the given file path.
+     *
+     * @param filePath the path to the file where tasks will be saved/loaded
+     */
     Storage(String filePath) {
         this.filePath = filePath;
     }
 
     /**
-     * @return
+     * Loads tasks from the storage file into memory.
+     * <p>
+     * If the file does not exist, it will be created (along with
+     * the parent directory if necessary). Each non-empty line in the
+     * file is parsed into a {@link Task} using {@link Task#parse(String)}.
+     * Malformed lines are skipped with an error message.
+     *
+     * @return an {@link ArrayList} containing the tasks loaded from the file
      */
     public ArrayList<Task> load() {
         File f = new File(filePath);
@@ -55,6 +75,12 @@ public class Storage {
         return taskList;
     }
 
+    /**
+     * Updates the storage file with the current task list.
+     * <p>
+     * Each task is written in its serialized form (via {@link Task#serialise()}),
+     * with one task per line. Overwrites the existing file content.
+     */
     public void updateFile() {
         try (FileWriter writer = new FileWriter(filePath)) {
             for (Task task : taskList) {

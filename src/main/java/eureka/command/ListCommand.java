@@ -4,7 +4,25 @@ import eureka.Storage;
 import eureka.Task.TaskList;
 import eureka.ui.Ui;
 
+/**
+ * Represents a command that lists all tasks in the {@link TaskList}.
+ * <p>
+ * When executed, this command prints the tasks to the console via {@link Ui}
+ * and also returns a formatted string for GUI display. If the list is empty,
+ * it notifies the user accordingly.
+ */
 public class ListCommand extends Command {
+
+    /**
+     * Executes the list command by displaying all tasks in the {@link TaskList}.
+     * Also formats the tasks into a string for GUI display.
+     *
+     * @param tasks   the task list whose tasks are to be listed
+     * @param ui      the user interface used to display tasks
+     * @param storage the storage (not used in this command)
+     * @return a formatted string containing all tasks,
+     *         or a message indicating the list is empty
+     */
     @Override
     public String execute(TaskList tasks, Ui ui, Storage storage) {
         ui.showLine();
@@ -30,6 +48,11 @@ public class ListCommand extends Command {
         return sb.toString().trim(); // remove trailing newline
     }
 
+    /**
+     * Indicates whether this command will terminate the program.
+     *
+     * @return false, since listing tasks does not exit the application
+     */
     @Override
     public boolean isExit() {
         return false;

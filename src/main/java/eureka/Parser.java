@@ -6,11 +6,35 @@ import java.time.LocalDateTime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Parses raw user input strings into executable {@link Command} objects.
+ * <p>
+ * Supported commands and formats:
+ * <ul>
+ *   <li><code>bye</code> – exits the application</li>
+ *   <li><code>list</code> – lists all tasks</li>
+ *   <li><code>mark &lt;index&gt;</code> – marks the 1-based task at {@code index} as done</li>
+ *   <li><code>unmark &lt;index&gt;</code> – marks the 1-based task at {@code index} as not done</li>
+ *   <li><code>delete &lt;index&gt;</code> – deletes the 1-based task at {@code index}</li>
+ *   <li><code>todo &lt;task name&gt;</code> – adds a todo</li>
+ *   <li><code>deadline &lt;task name&gt; /by "yyyy-MM-dd HH:mm"</code> – adds a deadline</li>
+ *   <li><code>event &lt;task name&gt; /from "yyyy-MM-dd HH:mm" /to "yyyy-MM-dd HH:mm"</code> – adds an event</li>
+ *   <li><code>find &lt;keyword&gt;</code> – finds tasks containing {@code keyword}</li>
+ * </ul>
+ * Invalid or malformed inputs result in an {@link InvalidCommand}.
+ */
 public class Parser {
 
     /**
-     * @param fullCommand
-     * @return
+     * Parses a full command line into a concrete {@link Command}.
+     * <p>
+     * This method performs simple prefix checks for each command and,
+     * where applicable, uses regular expressions to extract arguments.
+     * It also validates date/time strings via {@link DateTimeConverter}.
+     *
+     * @param fullCommand the raw user input line (e.g., {@code "deadline homework /by 2025-09-01 18:00"})
+     * @return a {@link Command} instance corresponding to the input; never {@code null}.
+     *         Returns {@link InvalidCommand} for unknown or malformed commands.
      */
     public static Command parse(String fullCommand) {
         switch (fullCommand) {
