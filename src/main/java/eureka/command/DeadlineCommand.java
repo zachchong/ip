@@ -1,11 +1,11 @@
 package eureka.command;
 
-import eureka.Storage;
-import eureka.Task.Deadline;
-import eureka.Task.TaskList;
-import eureka.ui.Ui;
-
 import java.time.LocalDateTime;
+
+import eureka.Storage;
+import eureka.task.Deadline;
+import eureka.task.TaskList;
+import eureka.ui.Ui;
 
 /**
  * Represents a command that adds a {@link Deadline} task to the task list.

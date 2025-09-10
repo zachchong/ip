@@ -1,8 +1,8 @@
 package eureka.command;
 
 import eureka.Storage;
-import eureka.Task.TaskList;
-import eureka.Task.Todo;
+import eureka.task.TaskList;
+import eureka.task.Todo;
 import eureka.ui.Ui;
 
 /**

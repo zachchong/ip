@@ -1,7 +1,7 @@
 package eureka;
 
 import eureka.command.Command;
-import eureka.Task.TaskList;
+import eureka.task.TaskList;
 import eureka.ui.Ui;
 
 /**

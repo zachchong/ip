@@ -35,7 +35,7 @@ public class Main extends Application {
             AnchorPane ap = fxmlLoader.load();
             Scene scene = new Scene(ap);
             stage.setScene(scene);
-            fxmlLoader.<MainWindow>getController().setEureka(eureka);  // inject the Eureka instance
+            fxmlLoader.<MainWindow>getController().setEureka(eureka); // inject the Eureka instance
             stage.setTitle("Eureka");
             stage.show();
         } catch (IOException e) {

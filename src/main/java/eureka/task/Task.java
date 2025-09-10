@@ -1,13 +1,23 @@
-package eureka.Task;
+package eureka.task;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Represents a generic task with a name and completion status.
+ * This is the base class for specific task types like Todo, Deadline, and Event.
+ */
 public class Task {
     private String taskName;
     private boolean isDone;
 
-    Task(String taskName, boolean isDone) {
+    /**
+     * Creates a new Task with the specified name and completion status.
+     *
+     * @param taskName the name/description of the task
+     * @param isDone whether the task is marked as completed
+     */
+    public Task(String taskName, boolean isDone) {
         this.taskName = taskName;
         this.isDone = isDone;
     }
@@ -25,6 +35,11 @@ public class Task {
         }
     }
 
+    /**
+     * Converts the task to a serialized string format for storage.
+     *
+     * @return a string representation of the task suitable for file storage
+     */
     public String serialise() {
         if (this.isDone) {
             return "1" + " | " + this.taskName;
@@ -33,6 +48,13 @@ public class Task {
         }
     }
 
+    /**
+     * Parses a serialized task string and creates the appropriate Task subclass.
+     *
+     * @param line the serialized task string to parse
+     * @return a Task object of the appropriate subtype (Todo, Deadline, or Event)
+     * @throws IllegalArgumentException if the task type is unknown
+     */
     public static Task parse(String line) {
         String[] parts = line.split("\\s*\\|\\s*"); // split according to |
 
@@ -50,17 +72,26 @@ public class Task {
         default:
             throw new IllegalArgumentException("Unknown type: " + parts[0]);
         }
-
     }
 
+    /**
+     * Formats a LocalDateTime object into a human-readable string.
+     *
+     * @param dateTime the LocalDateTime to format
+     * @return a formatted date-time string in "EEEE, MMMM dd yyyy HH:mm" format
+     */
     public String dateTimeFormatter(LocalDateTime dateTime) {
         DateTimeFormatter custom1 = DateTimeFormatter.ofPattern("EEEE, MMMM dd yyyy HH:mm");
         return dateTime.format(custom1);
     }
 
+    /**
+     * Checks if the task name contains the specified keyword (case-insensitive).
+     *
+     * @param keyword the keyword to search for
+     * @return true if the task name contains the keyword, false otherwise
+     */
     public boolean contains(String keyword) {
         return taskName.toLowerCase().contains(keyword.toLowerCase());
     }
-
-
 }
