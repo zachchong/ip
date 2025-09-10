@@ -56,6 +56,7 @@ public class FindCommand extends Command {
 
         StringBuilder sb = new StringBuilder();
         sb.append("Here are the matching tasks in your list:\n");
+
         for (int i = 0; i < results.size(); i++) {
             sb.append((i + 1)).append(". ").append(results.get(i).toString()).append("\n");
         }
