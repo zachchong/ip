@@ -59,11 +59,12 @@ public class MarkCommand extends Command {
 
         ui.showLine();
         System.out.println("Nice! I've marked this task as done:");
-        System.out.println(tasks.getTask(index).toString());
+        String taskDetails = tasks.getTask(index).toString();
+        System.out.println(taskDetails);
         ui.showLine();
 
         return "Nice! I've marked this task as done:\n"
-                + tasks.getTask(index).toString();
+                + taskDetails;
     }
 
     /**

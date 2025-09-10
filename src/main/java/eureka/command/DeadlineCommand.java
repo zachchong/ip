@@ -50,10 +50,11 @@ public class DeadlineCommand extends Command {
         assert tasks.getTask(totalTasks - 1) != null : "last task should exist";
         String addedTask = tasks.getTask(totalTasks - 1).toString();
 
+        String isPlural = totalTasks > 1 ? "s" : "";
         return "Got it. I've added this task:\n"
                 + addedTask + "\n"
                 + "Now you have " + totalTasks + " task"
-                + (totalTasks > 1 ? "s" : "") + " in the list.";
+                + isPlural + " in the list.";
     }
 
     /**

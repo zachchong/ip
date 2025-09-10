@@ -54,10 +54,11 @@ public class DeleteCommand extends Command {
         System.out.println("Now you have " + tasks.getCount() + " tasks in the list.");
         ui.showLine();
 
+        String isPlural = tasks.getCount() > 1 ? "s" : "";
         return "Noted. I've removed this task:\n"
                 + deletedInfo + "\n"
                 + "Now you have " + tasks.getCount() + " task"
-                + (tasks.getCount() > 1 ? "s" : "") + " in the list.";
+                + isPlural + " in the list.";
     }
 
     /**
