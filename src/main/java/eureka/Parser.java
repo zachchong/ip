@@ -1,10 +1,20 @@
 package eureka;
 
-import eureka.command.*;
-
 import java.time.LocalDateTime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import eureka.command.Command;
+import eureka.command.DeadlineCommand;
+import eureka.command.DeleteCommand;
+import eureka.command.EventCommand;
+import eureka.command.ExitCommand;
+import eureka.command.FindCommand;
+import eureka.command.InvalidCommand;
+import eureka.command.ListCommand;
+import eureka.command.MarkCommand;
+import eureka.command.TodoCommand;
+import eureka.command.UnmarkCommand;
 
 /**
  * Parses raw user input strings into executable {@link Command} objects.
@@ -91,7 +101,9 @@ public class Parser {
                 }
 
             } else if (fullCommand.startsWith("event")) {
-                Pattern p = Pattern.compile("^\\s*(?<cmd>\\w+)\\s+(?<taskName>.+?)\\s+/from\\s+(?<from>.+?)\\s+/to\\s+(?<to>.+)\\s*$");
+                Pattern p = Pattern.compile(
+                        "^\\s*(?<cmd>\\w+)\\s+(?<taskName>.+?)\\s+/from\\s+(?<from>.+?)\\s+/to\\s+(?<to>.+)\\s*$"
+                );
                 Matcher m = p.matcher(fullCommand);
                 if (!m.matches()) {
                     printEventErrorMessage();
@@ -132,7 +144,9 @@ public class Parser {
 
     private static void printEventErrorMessage() {
         System.out.println("_____________________________");
-        System.out.println("Invalid event format. Eg: event orientation /from \"yyyy-MM-dd HH:mm\" /to \"yyyy-MM-dd HH:mm\"");
+        System.out.println(
+                "Invalid event format. Eg: event orientation /from \"yyyy-MM-dd HH:mm\" /to \"yyyy-MM-dd HH:mm\""
+        );
         System.out.println("_____________________________");
     }
 

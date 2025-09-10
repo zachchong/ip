@@ -1,11 +1,11 @@
 package eureka.command;
 
-import eureka.Storage;
-import eureka.Task.Task;
-import eureka.Task.TaskList;
-import eureka.ui.Ui;
-
 import java.util.ArrayList;
+
+import eureka.Storage;
+import eureka.task.Task;
+import eureka.task.TaskList;
+import eureka.ui.Ui;
 
 /**
  * Represents a command that searches for tasks in the task list
