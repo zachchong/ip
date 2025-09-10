@@ -14,7 +14,12 @@ public class Event extends Task {
 
     @Override
     public String toString() {
-        return "[E] " + super.toString() + " (from: " + super.dateTimeFormatter(this.start) + " to: " + super.dateTimeFormatter(this.end) + ")";
+        String fromStr = (start != null) ? super.dateTimeFormatter(start) : "N/A";
+        String toStr   = (end   != null) ? super.dateTimeFormatter(end)   : "N/A";
+
+        return "[E] " + super.toString()
+                + " (from: " + fromStr
+                + " to: " + toStr + ")";
     }
 
     @Override

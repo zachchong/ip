@@ -12,8 +12,10 @@ public class Deadline extends Task {
 
     @Override
     public String toString() {
-        return "[D] " + super.toString() + " (by: " + super.dateTimeFormatter(this.due) + ")";
+        String dueStr = (due != null) ? dateTimeFormatter(due) : "N/A";
+        return "[D] " + super.toString() + " (by: " + dueStr + ")";
     }
+
 
     @Override
     public String serialise() {

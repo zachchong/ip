@@ -65,9 +65,7 @@ public class Parser {
                 Pattern p = Pattern.compile("^\\s*(?<cmd>\\w+)\\s+(?<taskName>.+)\\s*$");
                 Matcher m = p.matcher(fullCommand);
                 if (!m.matches()) {
-                    System.out.println("_____________________________");
-                    System.out.println("Invalid todo format. Task Name cannot be empty. Eg: todo homework");
-                    System.out.println("_____________________________");
+                    printTodoErrorMessage();
                     break;
                 }
                 String taskName = m.group("taskName");
@@ -76,9 +74,7 @@ public class Parser {
                 Pattern p = Pattern.compile("^\\s*(?<cmd>\\w+)\\s+(?<taskName>.+?)\\s+/by\\s+(?<by>.+)\\s*$");
                 Matcher m = p.matcher(fullCommand);
                 if (!m.matches()) {
-                    System.out.println("_____________________________");
-                    System.out.println("Invalid deadline format. Eg: deadline homework /by \"yyyy-MM-dd HH:mm\"");
-                    System.out.println("_____________________________");
+                    printDeadlineErrorMessage();
                     break;
                 }
                 String taskName = m.group("taskName");
@@ -98,9 +94,7 @@ public class Parser {
                 Pattern p = Pattern.compile("^\\s*(?<cmd>\\w+)\\s+(?<taskName>.+?)\\s+/from\\s+(?<from>.+?)\\s+/to\\s+(?<to>.+)\\s*$");
                 Matcher m = p.matcher(fullCommand);
                 if (!m.matches()) {
-                    System.out.println("_____________________________");
-                    System.out.println("Invalid event format. Eg: event orientation /from \"yyyy-MM-dd HH:mm\" /to \"yyyy-MM-dd HH:mm\"");
-                    System.out.println("_____________________________");
+                    printEventErrorMessage();
                     break;
                 }
                 String taskName = m.group("taskName");
@@ -129,4 +123,24 @@ public class Parser {
         }
         return new InvalidCommand();
     }
+
+    private static void printTodoErrorMessage() {
+        System.out.println("_____________________________");
+        System.out.println("Invalid todo format. Task Name cannot be empty. Eg: todo homework");
+        System.out.println("_____________________________");
+    }
+
+    private static void printEventErrorMessage() {
+        System.out.println("_____________________________");
+        System.out.println("Invalid event format. Eg: event orientation /from \"yyyy-MM-dd HH:mm\" /to \"yyyy-MM-dd HH:mm\"");
+        System.out.println("_____________________________");
+    }
+
+    private static void printDeadlineErrorMessage() {
+        System.out.println("_____________________________");
+        System.out.println("Invalid deadline format. Eg: deadline homework /by \"yyyy-MM-dd HH:mm\"");
+        System.out.println("_____________________________");
+    }
+
+
 }
