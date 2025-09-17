@@ -43,9 +43,12 @@ public class DeadlineCommand extends Command {
      */
     @Override
     public String execute(TaskList tasks, Ui ui, Storage storage) {
-        tasks.addTask(new Deadline(by, taskName, false));
+        Deadline newTask = new Deadline(by, taskName, false);
+        tasks.addTask(newTask);
+
         storage.updateFile();
         ui.addTaskMessage(tasks);
+
         int totalTasks = tasks.getCount();
         assert tasks.getTask(totalTasks - 1) != null : "last task should exist";
         String addedTask = tasks.getTask(totalTasks - 1).toString();
