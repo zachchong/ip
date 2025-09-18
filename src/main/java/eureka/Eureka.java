@@ -16,6 +16,7 @@ import eureka.ui.Ui;
 public class Eureka {
 
     private TaskList tasks;
+
     private Storage storage;
     private Ui ui;
 
