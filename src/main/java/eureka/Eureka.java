@@ -17,6 +17,7 @@ public class Eureka {
 
     private TaskList tasks;
     private Storage storage;
+    
     private Ui ui;
 
     /**
